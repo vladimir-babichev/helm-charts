@@ -2,6 +2,13 @@ apiVersion: v1
 entries:
   argocd-apps:
   - apiVersion: v2
+    created: "2022-01-09T23:06:44.820013829Z"
+    digest: 914f40659b27f6cb4412db90ba49e83c210d83dafef4e8133bbeb82fdcd1e315
+    name: argocd-apps
+    urls:
+    - https://github.com/vladimir-babichev/helm-charts/releases/download/argocd-apps-0.3.0/argocd-apps-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     created: "2022-01-09T22:24:37.031935487Z"
     digest: 39520fe52e7f31929bf62226a96e8c6aa7c512fc19e3d378177733f52090aca6
     name: argocd-apps
@@ -15,4 +22,4 @@ entries:
     urls:
     - https://github.com/vladimir-babichev/helm-charts/releases/download/argocd-apps-0.1.0/argocd-apps-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-09T22:24:37.031942987Z"
+generated: "2022-01-09T23:06:44.82002393Z"
