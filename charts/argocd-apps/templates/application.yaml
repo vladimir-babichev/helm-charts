@@ -24,17 +24,16 @@ spec:
   source:
     repoURL: {{ default $.Values.global.repo.url ((($v).repo).url) }}
     targetRevision: {{ default (($.Values.global.repo).revision) ((($v).repo).revision) }}
-    {{/*- if (($v).path) */}}
     path: {{ $v.path }}
-    {{/*- else */}}
-    {{/*path: {{ $.Values.global.repo.pathPrefix}}/{{ default $k (($v).name) */}}
-    {{/*- end */}}
     {{- if (($v).directory) }}
     directory:
       {{- toYaml $v.directory | nindent 6 }}
     {{- else if (($v).helm) }}
     helm:
       {{- toYaml $v.helm | nindent 6 }}
+    {{- else if (($v).plugin) }}
+    plugin:
+      {{- toYaml $v.plugin | nindent 6 }}
     {{- else }}
     helm:
       version: v3
