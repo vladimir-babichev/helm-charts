@@ -6,7 +6,7 @@ kind: Application
 metadata:
   name: {{ default $k (($v).name) }}
   {{- if (($v).annotations) }}
-    annotations:
+  annotations:
     {{- toYaml $v.annotations | nindent 4 }}
   {{- end }}
   labels:
