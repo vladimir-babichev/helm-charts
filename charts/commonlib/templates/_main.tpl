@@ -6,4 +6,8 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{- include "commonlib.values.setup" . }}
 
   {{- include "commonlib.volumes" . }}
+
+  {{- if ((.Values.traefik).middleware) -}}
+    {{- include "commonlib.traefik.middleware" . }}
+  {{- end -}}
 {{- end -}}
