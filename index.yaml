@@ -39,4 +39,14 @@ entries:
     urls:
     - https://github.com/vladimir-babichev/helm-charts/releases/download/common-0.1.0/common-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-16T00:04:15.550057566Z"
+  commonlib:
+  - apiVersion: v2
+    created: "2022-01-16T08:30:58.172725467Z"
+    description: A Helm chart for Kubernetes
+    digest: a85dbfddc94081baa9febadc1e8107c7623aaed12826e3393f41904b9d4e33ac
+    name: commonlib
+    type: library
+    urls:
+    - https://github.com/vladimir-babichev/helm-charts/releases/download/commonlib-0.1.0/commonlib-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-01-16T08:30:58.172747067Z"
