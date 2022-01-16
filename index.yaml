@@ -2,6 +2,13 @@ apiVersion: v1
 entries:
   argocd-apps:
   - apiVersion: v2
+    created: "2022-01-16T00:04:15.441416064Z"
+    digest: 2f6308570a16058b2334cd13c85d595070f8fa4fac8e20ef0cb46dbb59eb5af6
+    name: argocd-apps
+    urls:
+    - https://github.com/vladimir-babichev/helm-charts/releases/download/argocd-apps-0.3.1/argocd-apps-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
     created: "2022-01-09T23:06:44.820013829Z"
     digest: 914f40659b27f6cb4412db90ba49e83c210d83dafef4e8133bbeb82fdcd1e315
     name: argocd-apps
@@ -22,4 +29,14 @@ entries:
     urls:
     - https://github.com/vladimir-babichev/helm-charts/releases/download/argocd-apps-0.1.0/argocd-apps-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-09T23:06:44.82002393Z"
+  common:
+  - apiVersion: v2
+    created: "2022-01-16T00:04:15.550032866Z"
+    description: A Helm chart for Kubernetes
+    digest: 1c38d5bcccd4af84942ae4a051180cb59205c15f6b67e5f9bfe48ae2ef745e6e
+    name: common
+    type: library
+    urls:
+    - https://github.com/vladimir-babichev/helm-charts/releases/download/common-0.1.0/common-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-01-16T00:04:15.550057566Z"
