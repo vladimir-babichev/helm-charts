@@ -17,6 +17,13 @@ applications:
 # applications:
 #   vault:
 #     path: k8s/core/vault
+#   argocd:
+#     path: k8s/core/argocd
+#     plugin:
+#       name: argocd-vault-plugin-helm
+#       env:
+#         - name: helm_args
+#           value: -f values-dev.yaml
 
 appProjects:
 # appProjects:
