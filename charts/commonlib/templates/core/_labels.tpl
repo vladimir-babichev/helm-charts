@@ -1,9 +1,9 @@
 {{/*
 Common labels
 */}}
-{{- define "common.labels" -}}
-helm.sh/chart: {{ include "common.chart" . }}
-{{ include "common.selectorLabels" . }}
+{{- define "commonlib.labels" -}}
+helm.sh/chart: {{ include "commonlib.chart" . }}
+{{ include "commonlib.selectorLabels" . }}
   {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
   {{- end }}
@@ -13,7 +13,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "common.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "common.name" . }}
+{{- define "commonlib.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "commonlib.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}

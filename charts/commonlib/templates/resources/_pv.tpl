@@ -1,11 +1,11 @@
-{{- define "common.resources.pv" -}}
+{{- define "commonlib.resources.pv" -}}
 {{- $values := .Values.pv -}}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.pv -}}
     {{- $values = . -}}
   {{- end -}}
 {{ end -}}
-{{- $pvName := include "common.fullname" . -}}
+{{- $pvName := include "commonlib.fullname" . -}}
 {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
   {{- if not (eq $values.nameOverride "-") -}}
     {{- $pvName = $values.nameOverride -}}
@@ -17,7 +17,7 @@ kind: PersistentVolume
 metadata:
   name: {{ $pvName }}
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "commonlib.labels" . | nindent 4 }}
     {{- with $values.labels }}
       {{- toYaml $values.labels | nindent 4 }}
     {{- end }}

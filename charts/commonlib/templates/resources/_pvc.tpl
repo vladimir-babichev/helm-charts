@@ -1,11 +1,11 @@
-{{- define "common.resources.pvc" -}}
+{{- define "commonlib.resources.pvc" -}}
 {{- $values := .Values.pvc -}}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.pvc -}}
     {{- $values = . -}}
   {{- end -}}
 {{ end -}}
-{{- $pvcName := include "common.fullname" . -}}
+{{- $pvcName := include "commonlib.fullname" . -}}
 {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
   {{- if not (eq $values.nameOverride "-") -}}
     {{- $pvcName = $values.nameOverride -}}
@@ -17,7 +17,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ $pvcName }}
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "commonlib.labels" . | nindent 4 }}
     {{- with $values.labels }}
       {{- toYaml $values.labels | nindent 4 }}
     {{- end }}

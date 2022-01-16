@@ -1,0 +1,36 @@
+volumes:
+  data:
+    # -- Enables or disables the volume
+    enabled: false
+
+    # -- Override the name used for this volume
+    nameOverride:
+
+    # -- Additional annotations that will be added to pv and pvc
+    annotations: {}
+
+    # -- Additional labels that will be added to pv and pvc
+    labels: {}
+
+    # -- AccessMode for the volume.
+    accessMode: ReadWriteMany
+
+    # -- Persistent volume reclaim policy
+    persistentVolumeReclaimPolicy: Retain
+
+    # -- The amount of storage that is requested for the persistent volume.
+    size: 1Gi
+
+    # -- Storage Class for the volume
+    storageClassName: nfs
+
+    # -- Volume Mode
+    # Kubernetes supports two volumeModes of PersistentVolumes: Filesystem and Block.
+    volumeMode: Filesystem
+
+    # -- Define NFS configuration
+    nfs:
+      # -- Set path prefix for volume location. End result will be `<path>/<volume_name>`
+      path: /data/containers
+      # -- Set NFS server address
+      server: 10.0.0.10
