@@ -5,14 +5,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: {{ default $k (($v).name) }}
-  {{- if (($v).annotations) }}
   annotations:
+  {{- with $v.annotations }}
     {{- toYaml $v.annotations | nindent 4 }}
   {{- end }}
   labels:
-    app.kubernetes.io/name: {{ include "chart.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    {{- include "commonlib.labels" $ | nindent 4 }}
     {{- if (($v).labels) }}
     {{- toYaml $v.labels | nindent 4 }}
     {{- end }}

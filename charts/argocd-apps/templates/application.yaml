@@ -5,14 +5,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ default $k (($v).name) }}
-  {{- if (($v).annotations) }}
   annotations:
+  {{- with $v.annotations }}
     {{- toYaml $v.annotations | nindent 4 }}
   {{- end }}
   labels:
-    app.kubernetes.io/name: {{ include "chart.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    {{- include "commonlib.labels" $ | nindent 4 }}
     {{- if (($v).labels) }}
     {{- toYaml $v.labels | nindent 4 }}
     {{- end }}
@@ -34,6 +32,15 @@ spec:
     {{- else if (($v).plugin) }}
     plugin:
       {{- toYaml $v.plugin | nindent 6 }}
+    {{- else if $.Values.global.directory }}
+    directory:
+      {{- toYaml $.Values.global.directory | nindent 6 }}
+    {{- else if $.Values.global.helm }}
+    helm:
+      {{- toYaml $.Values.global.helm | nindent 6 }}
+    {{- else if $.Values.global.plugin }}
+    plugin:
+      {{- toYaml $.Values.global.plugin | nindent 6 }}
     {{- else }}
     helm:
       version: v3
