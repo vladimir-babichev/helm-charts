@@ -10,4 +10,9 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{- if ((.Values.traefik).middleware) -}}
     {{- include "commonlib.traefik.middleware" . }}
   {{- end -}}
+
+  {{- if .Values.ingress -}}
+    {{- include "commonlib.ingress" . }}
+  {{- end -}}
+
 {{- end -}}

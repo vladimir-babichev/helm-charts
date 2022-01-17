@@ -34,3 +34,44 @@ volumes:
       path: /data/containers
       # -- Set NFS server address
       server: 10.0.0.10
+
+ingress:
+  external:
+    # -- Enables or disables the ingress
+    enabled: false
+
+    # -- Override the name used for this volume
+    nameOverride:
+
+    # -- Additional annotations that will be added to ingress
+    annotations:
+      {}
+      # cert-manager.io/cluster-issuer: letsencrypt
+      # kubernetes.io/ingress.class: traefik-external
+
+    # -- Additional labels that will be added to ingress
+    labels: {}
+
+    # -- Set the ingressClass that is used for this ingress.
+    ingressClassName:
+
+    # -- Configure hosts
+    hosts:
+      - # -- Host address
+        host: domin.local
+        # -- List of host paths
+        paths:
+          - # -- Path
+            path: /
+            # -- Path type
+            pathType: Prefix
+            service:
+              # -- Service name. Defaults to chart fullname
+              name:
+              # -- Service port. Defaults to 8080
+              port:
+    tls:
+      []
+      # - secretName: domin.local-tls
+      #   hosts:
+      #     - domin.local
