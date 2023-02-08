@@ -4,7 +4,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ default $k (($v).name) }}
+  name: {{ default $.Values.global.project (($v).project) }}-{{ default $k (($v).name) }}
   annotations:
   {{- with $v.annotations }}
     {{- toYaml $v.annotations | nindent 4 }}
